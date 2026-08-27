@@ -1,0 +1,59 @@
+import java.util.Scanner;
+public class MenuCafeteria {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("+----- MENU  UNIVERSITARIO -----+");
+        System.out.println("|                               |");
+        System.out.println("| 1. Sanduche de Pollo\t[1.50]\t|");
+        System.out.println("| 2. Cafe con Leche\t[1.00]\t|");
+        System.out.println("| 3. Mini Hamburguesa\t[3.75]\t|");
+        System.out.println("|                               |");
+        System.out.println("+-------------------------------+");
+        System.out.print(">> Ingresa el producto a adquirir (numero): "); 
+        int producto = sc.nextInt();
+        System.out.print(">> Ingresa la cantidad a adquirir: ");
+        int cantidad = sc.nextInt();
+        
+        String nombre_producto = "Nada";
+        double precio = 0;
+        
+        switch (producto){
+            case 1:
+                precio = 1.50;
+                nombre_producto = "Sanduche de Pollo";
+                break;
+            case 2:
+                precio = 1.00;
+                nombre_producto = "Cafe con Leche";
+                break;
+            case 3:
+                precio = 3.75;
+                nombre_producto = "Mini Hamburguesa";
+                break;
+            default:
+                System.out.println("+--------------------------------------------------+");
+                System.out.println("| ERROR >> La opcion ingresada no esta en el menu. |");
+                System.out.println("+--------------------------------------------------+");
+                break;
+        }
+        
+        double subtotal = precio*cantidad;
+        double descuento = 0;
+        
+        if (subtotal >= 10) {
+            descuento = subtotal*0.10;
+        }
+        
+        double total = subtotal - descuento;
+        
+        System.out.println("+--------------------------- FACTURA ---------------------------+");
+        System.out.println("|                                                               |");
+        System.out.println("| PRODUCTO\t\tCANT.\tPRECIO\tSUBTT.\tDESC.\tTOTAL\t|");
+        System.out.printf("| %s\t%d\t$%.2f\t$%.2f\t$%.2f\t$%.2f\t|\n", nombre_producto, cantidad, precio, subtotal,
+                descuento, total);
+        System.out.println("|                                                               |");
+        System.out.println("+---------------------------------------------------------------+");
+       
+    }
+}
